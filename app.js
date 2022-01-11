@@ -23,8 +23,10 @@ app.engine("handlebars", handlebars({ layoutsDir: __dirname + "/views/layouts", 
 // Express Static -------------------------------------//
 app.use(express.static("public"))
 
+//Routers
+app.use('/', require('./routes/userRoute'))
+app.use('/', require('./routes/usersRoute'))
 
-// Routers -------------------------------------//
 require("./routes")(app)
   
 

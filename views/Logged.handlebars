@@ -1,17 +1,10 @@
+{{!-- HTML --}}
 {{#data}}
+<a href="/"> <button id="exit"> Sair </button> </a>
 
-<a href="/"> 
-    <button id="exit">
-        Sair
-    </button> 
-</a>
+<h1> Bem-Vindo(a) <b><i>{{u_name}} !!</i></b> </h1>
 
-<h1> Bem-Vindo(a) 
-    <b><i>{{u_name}} !!</i></b> 
-</h1>
-
-<a href="/delete/:id"> 
+<a href="/del_user">
     <button id="del_user"> Deletar sua conta </button>
-</a>
-
+</a> 
 {{/data}}

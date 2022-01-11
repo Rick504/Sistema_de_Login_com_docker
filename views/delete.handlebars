@@ -1,22 +1,37 @@
-  <link rel="stylesheet" href="/style_Logged.css">
+{{!-- CSS --}}
+<link rel="stylesheet" href="/style_Logged.css">
 
-{{#data}}  
 
+{{!-- HTML --}}
 <h1> Deseja mesmo deletar sua conta? </h1><br>
 
 <div class="btns_del">
-    <a href="/del_acount/{{user_id}}"> 
-        <button>
-            Sim, deletar
-        </button>
-    </a>
-
-    <a href="/Logged/:id"> 
-        <button>
-            Não.
-        </button>
-    <a href="/del_acount/{{user_id}}"> 
+    <button onclick="deleteUser()"> Sim, deletar </button>
+    <button onclick="back()"> Não. </button>
 </div>
 
-{{/data}}
 
+{{!-- JS --}}
+<script>
+    function deleteUser() {
+         const deleteMethod = {
+                method: 'DELETE',
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8' 
+                },
+            }
+
+            fetch('/user/:id', deleteMethod) 
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(err => console.log(err))
+
+            alert('Conta deletada com sucesso !!')
+
+            location = '/'
+    }
+
+    function back() {
+        location = '/Logged/:id'
+    }
+</script>

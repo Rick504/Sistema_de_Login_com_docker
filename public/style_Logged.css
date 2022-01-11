@@ -46,6 +46,6 @@ button {
 }
 
 .btns_del {
-    position: relative;
+    position: absolute;
     left: 580px;
 }

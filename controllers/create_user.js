@@ -1,7 +1,7 @@
-const knex = require('../../models/config/conn_knex')
+const knex = require('../models/config/conn_knex')
 
-const insert_user = async (req, res) => {
-
+const create_user = async (req, res) => {
+    try {
         const dados_user = {
             u_name: req.body.u_name,
             email: req.body.email,
@@ -11,8 +11,14 @@ const insert_user = async (req, res) => {
         await knex('users').insert(dados_user)
 
         res.render('registration_performed', { layout: false })
+
+        res.status(201)
+        
+    } catch (error) {
+
+        res.status(404).json({ error: error })
     }
+}
 
-
-module.exports = { insert_user }
+module.exports = { create_user }
 
